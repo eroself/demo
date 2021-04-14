@@ -13,13 +13,11 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.server.StreamRegistration;
 import com.vaadin.flow.server.StreamResource;
 import com.wontlost.dicebear.Constants.Style;
-import com.wontlost.dicebear.DicebearVaadin;
-import com.wontlost.dicebear.Options;
 import org.vaadin.addon.sliders.PaperSlider;
+import com.vaadin.flow.component.HasValue.ValueChangeEvent;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
@@ -28,17 +26,18 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 
+import static com.wontlost.ckeditor.utils.Constant.PAGE_DEMO_DICEBEAR;
+
 /**
  * The main view is a top-level placeholder for other views.
  */
 @JsModule("./styles/shared-styles.js")
 @Viewport("width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover")
-@PWA(name = "Avatar", shortName = "Avatar")
-@Route(value = "")
+@Route(value = PAGE_DEMO_DICEBEAR)
 @PageTitle("Avatar")
 public class DicebearView extends VerticalLayout {
 
-    private Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+    private final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
     PaperSlider radius = new PaperSlider(0, 50, 0);
 
@@ -49,7 +48,7 @@ public class DicebearView extends VerticalLayout {
         return pattern.matcher(strNum).matches();
     }
 
-    private void changeColor(HasValue.ValueChangeEvent event, Options options, DicebearVaadin dicebearVaadin) {
+    private void changeColor(ValueChangeEvent event, Options options, DicebearVaadin dicebearVaadin) {
         if(event.getValue().equals(Style.initials) || radius.getValue().compareTo(0)>0) {
             options.setBackground(nextColor());
         }else{
@@ -68,7 +67,7 @@ public class DicebearView extends VerticalLayout {
         return String.format("#%06x", nextInt);
     }
 
-    DicebearView() {
+    public DicebearView() {
         super();
         Options options = new Options();
         TextField value = new TextField("Value");

@@ -47,7 +47,19 @@
       "lit-element": "2.4.0",
       "@vaadin/vaadin-avatar": "1.0.4",
       "@zxing/browser": "0.0.8",
-      "@zxing/library": "0.18.4"
+      "@zxing/library": "0.18.4",
+      "@dicebear/avatars-female-sprites": "^4.5.4",
+      "@dicebear/avatars-initials-sprites": "^4.5.4",
+      "@dicebear/avatars-human-sprites": "^4.5.4",
+      "@dicebear/avatars-bottts-sprites": "^4.5.4",
+      "@dicebear/avatars-jdenticon-sprites": "^4.5.4",
+      "@dicebear/avatars-gridy-sprites": "^4.5.4",
+      "@dicebear/avatars": "^4.5.4",
+      "@dicebear/avatars-identicon-sprites": "^4.5.4",
+      "@dicebear/avatars-avataaars-sprites": "^4.5.4",
+      "@polymer/paper-slider": "^3.0.1",
+      "@dicebear/avatars-male-sprites": "^4.5.4",
+      "@belomx/paper-range-slider": "1.0.3"
     },
     "devDependencies": {
       "webpack-babel-multi-target-plugin": "2.3.3",
@@ -62,7 +74,7 @@
       "ts-loader": "8.0.12",
       "typescript": "4.0.3"
     },
-    "hash": "295c0c3c29270a61bb8465600fc71040508f7347cd3ec32b816aaa3a0872036d"
+    "hash": "c8206d16dbc3429482a13849a84ba0a934c6aa6f36f5311438cb8e9513973373"
   },
   "dependencies": {
     "@polymer/iron-icon": "3.0.1",
@@ -111,7 +123,19 @@
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "lit-element": "2.4.0",
     "@zxing/browser": "0.0.8",
-    "@zxing/library": "0.18.4"
+    "@zxing/library": "0.18.4",
+    "@dicebear/avatars-female-sprites": "^4.5.4",
+    "@dicebear/avatars-initials-sprites": "^4.5.4",
+    "@dicebear/avatars-human-sprites": "^4.5.4",
+    "@dicebear/avatars-bottts-sprites": "^4.5.4",
+    "@dicebear/avatars-jdenticon-sprites": "^4.5.4",
+    "@dicebear/avatars-gridy-sprites": "^4.5.4",
+    "@dicebear/avatars": "^4.5.4",
+    "@dicebear/avatars-identicon-sprites": "^4.5.4",
+    "@dicebear/avatars-avataaars-sprites": "^4.5.4",
+    "@polymer/paper-slider": "^3.0.1",
+    "@dicebear/avatars-male-sprites": "^4.5.4",
+    "@belomx/paper-range-slider": "1.0.3"
   },
   "devDependencies": {
     "chokidar": "^3.5.0",

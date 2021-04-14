@@ -4,6 +4,7 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.router.*;
 import com.wontlost.ckeditor.views.CKEditorView;
+import com.wontlost.dicebear.DicebearView;
 import com.wontlost.zxing.ZXingView;
 
 import static com.wontlost.ckeditor.utils.Constant.PAGE_ROOT;
@@ -24,6 +25,8 @@ public class DemoView extends Div implements HasUrlParameter<String> {
             add(new CKEditorView());
         } else if (parameter.equals("zxing")) {
             add(new ZXingView());
+        } else if (parameter.equals("dicebear")) {
+            add(new DicebearView());
         }
     }
 
