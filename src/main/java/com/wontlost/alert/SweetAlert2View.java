@@ -1,16 +1,27 @@
 package com.wontlost.alert;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.Viewport;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 import com.wontlost.sweetalert2.Config;
 import com.wontlost.sweetalert2.SweetAlert2Vaadin;
+
+import static com.wontlost.ckeditor.utils.Constant.PAGE_DEMO_ALERT;
+import static com.wontlost.ckeditor.utils.Constant.PAGE_DEMO_ZXING;
 
 /**
  * @author Ryan Pang
  * @date 4/15/2021
  */
+@JsModule("./styles/shared-styles.js")
+@Viewport("width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover")
+@Route(value = PAGE_DEMO_ALERT)
+@PageTitle("SweetAlert2")
 public class SweetAlert2View extends VerticalLayout {
 
     public SweetAlert2View(){
