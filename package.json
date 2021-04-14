@@ -59,7 +59,9 @@
       "@dicebear/avatars-avataaars-sprites": "^4.5.4",
       "@polymer/paper-slider": "^3.0.1",
       "@dicebear/avatars-male-sprites": "^4.5.4",
-      "@belomx/paper-range-slider": "1.0.3"
+      "@belomx/paper-range-slider": "1.0.3",
+      "datebook": "^6.5.1",
+      "sweetalert2": "^10.16.0"
     },
     "devDependencies": {
       "webpack-babel-multi-target-plugin": "2.3.3",
@@ -74,7 +76,7 @@
       "ts-loader": "8.0.12",
       "typescript": "4.0.3"
     },
-    "hash": "c8206d16dbc3429482a13849a84ba0a934c6aa6f36f5311438cb8e9513973373"
+    "hash": "5a4e176bd2fec30ca50857c0087cbc0cc6f01e3342832a90ed6032a31a429d64"
   },
   "dependencies": {
     "@belomx/paper-range-slider": "1.0.3",
@@ -135,7 +137,9 @@
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "@zxing/browser": "0.0.8",
     "@zxing/library": "0.18.4",
-    "lit-element": "2.4.0"
+    "lit-element": "2.4.0",
+    "datebook": "^6.5.1",
+    "sweetalert2": "^10.16.0"
   },
   "devDependencies": {
     "chokidar": "^3.5.0",

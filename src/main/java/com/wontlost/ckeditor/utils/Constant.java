@@ -22,6 +22,8 @@ public class Constant {
 
     public static final String PAGE_DEMO_DICEBEAR = "dicebear";
 
+    public static final String PAGE_DEMO_DATEBOOK = "datebook";
+
     public static final String VIEWPORT = "width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover";
 
 

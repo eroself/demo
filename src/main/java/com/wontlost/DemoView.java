@@ -3,7 +3,9 @@ package com.wontlost;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.router.*;
+import com.wontlost.alert.SweetAlert2View;
 import com.wontlost.ckeditor.views.CKEditorView;
+import com.wontlost.datebook.DatebookView;
 import com.wontlost.dicebear.DicebearView;
 import com.wontlost.zxing.ZXingView;
 
@@ -27,6 +29,10 @@ public class DemoView extends Div implements HasUrlParameter<String> {
             add(new ZXingView());
         } else if (parameter.equals("dicebear")) {
             add(new DicebearView());
+        } else if (parameter.equals("datebook")) {
+            add(new DatebookView());
+        } else if (parameter.equals("alert")) {
+            add(new SweetAlert2View());
         }
     }
 
