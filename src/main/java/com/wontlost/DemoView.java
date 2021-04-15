@@ -52,20 +52,35 @@ public class DemoView extends VerticalLayout implements HasUrlParameter<String> 
         Image alert = new Image();
         Image datebook = new Image();
 
-        ckeditor.setHeight(200, Unit.PIXELS);
-        ckeditor.setWidth(200, Unit.PIXELS);
+        ckeditor.setMaxHeight("200px");
+        ckeditor.setMaxWidth("200px");
+        ckeditor.setTitle("CKEditor");
+        ckeditor.getStyle().set("padding", "22px");
+        ckeditor.getStyle().set("cursor", "pointer");
         ckeditor.setSrc("icons/ckeditor.png");
-        zxing.setHeight(200, Unit.PIXELS);
-        zxing.setWidth(200, Unit.PIXELS);
+        zxing.setMaxHeight("200px");
+        zxing.setMaxWidth("200px");
+        zxing.setTitle("ZXing");
+        zxing.getStyle().set("padding", "22px");
+        zxing.getStyle().set("cursor", "pointer");
         zxing.setSrc("icons/zxing.png");
-        dicebear.setHeight(200, Unit.PIXELS);
-        dicebear.setWidth(200, Unit.PIXELS);
+        dicebear.setMaxHeight("200px");
+        dicebear.setMaxWidth("200px");
+        dicebear.setTitle("Dicebear");
+        dicebear.getStyle().set("padding", "22px");
+        dicebear.getStyle().set("cursor", "pointer");
         dicebear.setSrc("icons/dicebear.png");
-        alert.setHeight(200, Unit.PIXELS);
-        alert.setWidth(200, Unit.PIXELS);
+        alert.setMaxHeight("200px");
+        alert.setMaxWidth("200px");
+        alert.setTitle("SweetAlert2");
+        alert.getStyle().set("padding", "22px");
+        alert.getStyle().set("cursor", "pointer");
         alert.setSrc("icons/sweetAlert.png");
-        datebook.setHeight(200, Unit.PIXELS);
-        datebook.setWidth(200, Unit.PIXELS);
+        datebook.setMaxHeight("200px");
+        datebook.setMaxWidth("200px");
+        datebook.setTitle("Datebook");
+        datebook.getStyle().set("padding", "22px");
+        datebook.getStyle().set("cursor", "pointer");
         datebook.setSrc("icons/datebook.png");
 
         ckeditor.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_CKEDITOR)));
@@ -74,6 +89,7 @@ public class DemoView extends VerticalLayout implements HasUrlParameter<String> 
         alert.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_ALERT)));
         datebook.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_DATEBOOK)));
 
+        layout.setSizeUndefined();
         layout.add(ckeditor, zxing, dicebear, alert, datebook);
         add(layout);
     }
