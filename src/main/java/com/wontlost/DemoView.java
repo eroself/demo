@@ -89,7 +89,7 @@ public class DemoView extends VerticalLayout implements HasUrlParameter<String> 
         alert.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_ALERT)));
         datebook.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_DATEBOOK)));
 
-        layout.setSizeUndefined();
+
         layout.add(ckeditor, zxing, dicebear, alert, datebook);
         add(layout);
     }
