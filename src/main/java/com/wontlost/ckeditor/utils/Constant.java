@@ -26,6 +26,8 @@ public class Constant {
 
     public static final String PAGE_DEMO_ALERT = "sweet-alert2";
 
+    public static final String PAGE_DEMO_EMAIL = "email-editor";
+
     public static final String VIEWPORT = "width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover";
 
 
