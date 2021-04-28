@@ -6,9 +6,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
-import com.wontlost.zxing.Constants;
-import com.wontlost.zxing.ZXingVaadinReader;
 
 import static com.wontlost.ckeditor.utils.Constant.PAGE_DEMO_ZXING;
 
