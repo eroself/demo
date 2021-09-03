@@ -30,6 +30,7 @@ public class BalloonView extends VerticalLayout {
         VaadinCKEditor editor = new VaadinCKEditorBuilder().with(builder -> {
             builder.editorData = "<p>This is a balloon editor example.</p>";
             builder.editorType = EditorType.BALLOON;
+            builder.width = "70%";
             builder.config = config;
         }).createVaadinCKEditor();
         add(editor);

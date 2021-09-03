@@ -7,6 +7,7 @@ import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.PWA;
 import com.wontlost.alert.SweetAlert2View;
 import com.wontlost.ckeditor.views.CKEditorView;
+import com.wontlost.anime.AnimeView;
 import com.wontlost.datebook.DatebookView;
 import com.wontlost.dicebear.DicebearView;
 import com.wontlost.zxing.ZXingView;
@@ -34,6 +35,8 @@ public class DemoView extends VerticalLayout implements HasUrlParameter<String> 
             add(new DicebearView());
         } else if (parameter.equals("datebook")) {
             add(new DatebookView());
+        } else if (parameter.equals("cron")) {
+            add(new AnimeView());
         } else if (parameter.equals("alert")) {
             add(new SweetAlert2View());
         }

@@ -24,6 +24,8 @@ public class Constant {
 
     public static final String PAGE_DEMO_DATEBOOK = "datebook";
 
+    public static final String PAGE_DEMO_ANIME = "anime";
+
     public static final String PAGE_DEMO_ALERT = "sweet-alert2";
 
     public static final String PAGE_DEMO_EMAIL = "email-editor";

@@ -29,6 +29,7 @@ public class InlineView extends VerticalLayout {
         VaadinCKEditor editor = new VaadinCKEditorBuilder().with(builder -> {
             builder.editorData = "<p>This is a inline editor example.</p>";
             builder.editorType = EditorType.INLINE;
+            builder.width = "70%";
             builder.config = config;
         }).createVaadinCKEditor();
         add(editor);

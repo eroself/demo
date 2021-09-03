@@ -19,6 +19,10 @@ public class DecoupledView extends VerticalLayout {
     public DecoupledView() {
         super();
         Config config = new Config();
+        config.enablePagination();
+        config.setPaginationA4();
+        config.enableMinimap();
+        config.setLicenseKey("Z53+BPxUtC2O0wXt+GeB/jVNCkGvO/1eQ3o2eUqq83m2+mBZl3bNeUUDpw==");
         config.setImage(new String[][]{},
                 "", new String[]{"full", "alignLeft", "alignCenter", "alignRight"},
                 new String[]{"imageTextAlternative", "|",
@@ -29,6 +33,8 @@ public class DecoupledView extends VerticalLayout {
         VaadinCKEditor editor = new VaadinCKEditorBuilder().with(builder -> {
             builder.editorData = "<p>This is a document editor example.</p>";
             builder.editorType = EditorType.DECOUPLED;
+            builder.width = "70%";
+            builder.minimap = true;
             builder.config = config;
         }).createVaadinCKEditor();
         add(editor);
