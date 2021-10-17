@@ -35,10 +35,21 @@ public class InlineView extends VerticalLayout {
         add(editor);
 
         add(new Label("--------------Preview---------------"));
-        Label label = new Label();
-        label.getElement().setProperty("innerHTML", editor.getValue());
-        editor.addValueChangeListener(e-> label.getElement().setProperty("innerHTML", e.getValue()));
-        add(label);
+//        Label label = new Label();
+//        label.setWidth(editor.getWidth());
+//        label.getElement().setProperty("innerHTML", editor.getValue());
+//        editor.addValueChangeListener(e-> label.getElement().setProperty("innerHTML", e.getValue()));
+//        add(label);
+        VaadinCKEditor preview = new VaadinCKEditorBuilder().with(builder -> {
+            builder.editorData = editor.getValue();
+            builder.editorType = EditorType.BALLOON;
+            builder.width = "70%";
+            builder.config = new Config();
+            config.setImage(new String[][]{}, "", new String[]{}, new String[]{}, new String[]{});
+            builder.readOnly = true;
+        }).createVaadinCKEditor();
+        add(preview);
+        editor.addValueChangeListener(e->preview.setValue(editor.getValue()));
         add(new Label("--------------Preview---------------"));
 
         setAlignItems(Alignment.CENTER);
