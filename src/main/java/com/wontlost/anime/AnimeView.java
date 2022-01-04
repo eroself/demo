@@ -36,8 +36,8 @@ public class AnimeView extends VerticalLayout {
         jsonObject.put("width", "100%");
         jsonObject.put("direction", "alternate");
         jsonObject.put("loop", true);
-        AnimeVaadin animeVaadin = new AnimeVaadin(jsonObject);
-        add(animeVaadin);
+        //AnimeVaadin animeVaadin = new AnimeVaadin(jsonObject);
+        //add(animeVaadin);
         setAlignItems(Alignment.CENTER);
     }
 

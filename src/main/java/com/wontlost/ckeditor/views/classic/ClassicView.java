@@ -6,6 +6,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import com.wontlost.ckeditor.Config;
+import com.wontlost.ckeditor.Constants;
 import com.wontlost.ckeditor.Constants.EditorType;
 import com.wontlost.ckeditor.VaadinCKEditor;
 import com.wontlost.ckeditor.VaadinCKEditorBuilder;
@@ -28,6 +29,10 @@ public class ClassicView extends VerticalLayout {
                         "imageStyle:full",
                         "imageStyle:alignCenter",
                         "imageStyle:alignRight"}, new String[]{});
+        config.setLanguage(Constants.Language.en_au, Constants.Language.en_gb, new Constants.TextPartLanguage[]{
+                Constants.TextPartLanguage.ar, Constants.TextPartLanguage.de, Constants.TextPartLanguage.sr_latn,
+                Constants.TextPartLanguage.fr, Constants.TextPartLanguage.ja, Constants.TextPartLanguage.uz,
+                Constants.TextPartLanguage.af, Constants.TextPartLanguage.bg, Constants.TextPartLanguage.zh_cn});
         VaadinCKEditor editor = new VaadinCKEditorBuilder().with(builder -> {
             builder.editorData = "<p>This is a classic editor example.</p>";
             builder.editorType = EditorType.CLASSIC;
