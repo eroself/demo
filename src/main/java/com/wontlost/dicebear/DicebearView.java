@@ -1,6 +1,6 @@
 package com.wontlost.dicebear;
 
-import com.vaadin.flow.component.HasValue;
+import com.vaadin.flow.component.HasValue.ValueChangeEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Div;
@@ -17,7 +17,6 @@ import com.vaadin.flow.server.StreamRegistration;
 import com.vaadin.flow.server.StreamResource;
 import com.wontlost.dicebear.Constants.Style;
 import org.vaadin.addon.sliders.PaperSlider;
-import com.vaadin.flow.component.HasValue.ValueChangeEvent;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
@@ -88,7 +87,6 @@ public class DicebearView extends VerticalLayout {
 //		image.setHeight("30");
 //        dicebearVaadin = new DicebearVaadin(image);
         DicebearVaadin dicebearVaadin = new DicebearVaadin();
-        dicebearVaadin.setValue("wontlost");
         dicebearVaadin.setWidth("100px");
         dicebearVaadin.setHeight("100px");
         dicebearVaadin.setStyle(Style.avataaars);
@@ -98,7 +96,7 @@ public class DicebearView extends VerticalLayout {
         add(select, value, size, radius, dicebearVaadin);
         value.setValueChangeMode(ValueChangeMode.EAGER);
         value.addValueChangeListener(e-> {
-            dicebearVaadin.setValue(e.getValue());
+            options.setValue(e.getValue());
             changeColor(e, options, dicebearVaadin);
         });
         radius.addValueChangeListener(e->{

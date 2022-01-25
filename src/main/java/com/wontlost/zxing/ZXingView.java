@@ -1,5 +1,6 @@
 package com.wontlost.zxing;
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -34,6 +35,12 @@ public class ZXingView extends VerticalLayout {
         });
         add(zXingVaadin1);
         add(new Label(""));
+        Button reset = new Button("Reset");
+        reset.addClickListener(event -> {
+            zXingVaadin1.reset();
+            value1.setText("");
+        });
+        add(reset);
         add(value1);
         setAlignItems(Alignment.CENTER);
     }

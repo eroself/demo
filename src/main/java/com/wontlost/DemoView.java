@@ -1,16 +1,20 @@
 package com.wontlost;
 
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.PWA;
 import com.wontlost.alert.SweetAlert2View;
-import com.wontlost.ckeditor.views.CKEditorView;
 import com.wontlost.anime.AnimeView;
+import com.wontlost.ckeditor.views.CKEditorView;
 import com.wontlost.datebook.DatebookView;
 import com.wontlost.dicebear.DicebearView;
 import com.wontlost.zxing.ZXingView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.wontlost.ckeditor.utils.Constant.*;
 
@@ -23,27 +27,27 @@ import static com.wontlost.ckeditor.utils.Constant.*;
 @PWA(name = "Demo", shortName = "Demo", display = "fullscreen")
 public class DemoView extends VerticalLayout implements HasUrlParameter<String> {
 
+    private static final Map<String, Component> components = new HashMap<>();
+
+    DemoView() {
+        components.put("ckeditor", new CKEditorView());
+        components.put("zxing", new ZXingView());
+        components.put("dicebear", new DicebearView());
+        components.put("datebook", new DatebookView());
+        components.put("cron", new AnimeView());
+        components.put("alert", new SweetAlert2View());
+        components.put("", createDemoPage());
+        components.put(null, createDemoPage());
+        components.put("undefined", createDemoPage());
+    }
+
     @Override
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
-        if (parameter == null) {
-            createDemoPage();
-        } else if (parameter.equals("ckeditor")) {
-            add(new CKEditorView());
-        } else if (parameter.equals("zxing")) {
-            add(new ZXingView());
-        } else if (parameter.equals("dicebear")) {
-            add(new DicebearView());
-        } else if (parameter.equals("datebook")) {
-            add(new DatebookView());
-        } else if (parameter.equals("cron")) {
-            add(new AnimeView());
-        } else if (parameter.equals("alert")) {
-            add(new SweetAlert2View());
-        }
+        add(components.get(parameter));
         setAlignItems(Alignment.CENTER);
     }
 
-    public void createDemoPage() {
+    public FormLayout createDemoPage() {
         FormLayout layout = new FormLayout();
         Image ckeditor = new Image();
         Image zxing = new Image();
@@ -82,15 +86,23 @@ public class DemoView extends VerticalLayout implements HasUrlParameter<String> 
         datebook.getStyle().set("cursor", "pointer");
         datebook.setSrc("icons/datebook.png");
 
-        ckeditor.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_CKEDITOR)));
-        zxing.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_ZXING)));
-        dicebear.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_DICEBEAR)));
-        alert.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_ALERT)));
-        datebook.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_DATEBOOK)));
-
+        addClickListener(ckeditor, PAGE_DEMO_CKEDITOR);
+        addClickListener(zxing, PAGE_DEMO_ZXING);
+        addClickListener(dicebear, PAGE_DEMO_DICEBEAR);
+        addClickListener(alert, PAGE_DEMO_ALERT);
+        addClickListener(datebook, PAGE_DEMO_DATEBOOK);
+        //ckeditor.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_CKEDITOR)));
+        //zxing.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_ZXING)));
+        //dicebear.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_DICEBEAR)));
+        //alert.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_ALERT)));
+        //datebook.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(PAGE_DEMO_DATEBOOK)));
 
         layout.add(ckeditor, zxing, dicebear, alert, datebook);
-        add(layout);
+        return layout;
+    }
+
+    private void addClickListener(Image image, String page) {
+        image.addClickListener(e-> this.getUI().ifPresent(ui -> ui.navigate(page)));
     }
 
 }
