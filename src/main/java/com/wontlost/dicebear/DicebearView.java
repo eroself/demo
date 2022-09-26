@@ -7,7 +7,6 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
@@ -16,7 +15,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.StreamRegistration;
 import com.vaadin.flow.server.StreamResource;
 import com.wontlost.dicebear.Constants.Style;
-import org.vaadin.addon.sliders.PaperSlider;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
@@ -31,14 +29,13 @@ import static com.wontlost.ckeditor.utils.Constant.PAGE_DEMO_DICEBEAR;
  * The main view is a top-level placeholder for other views.
  */
 @JsModule("./styles/shared-styles.js")
-@Viewport("width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover")
 @Route(value = PAGE_DEMO_DICEBEAR)
 @PageTitle("Avatar")
 public class DicebearView extends VerticalLayout {
 
     private final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
-    PaperSlider radius = new PaperSlider(0, 50, 0);
+    //PaperSlider radius = new PaperSlider(0, 50, 0);
 
     private boolean isNumeric(String strNum) {
         if (strNum == null) {
@@ -48,7 +45,7 @@ public class DicebearView extends VerticalLayout {
     }
 
     private void changeColor(ValueChangeEvent event, Options options, DicebearVaadin dicebearVaadin) {
-        if(event.getValue().equals(Style.initials) || radius.getValue().compareTo(0)>0) {
+        if(event.getValue().equals(Style.initials) /*|| radius.getValue().compareTo(0)>0*/) {
             options.setBackground(nextColor());
         }else{
             options.setBackground("transparent");
@@ -93,18 +90,18 @@ public class DicebearView extends VerticalLayout {
 //        options.setBackground("white").setDataUri(false)
 //                .setWidth(100).setHeight(100).setMargin(0).setRadius(50);
 
-        add(select, value, size, radius, dicebearVaadin);
+        add(select, value, size, /*radius,*/ dicebearVaadin);
         value.setValueChangeMode(ValueChangeMode.EAGER);
         value.addValueChangeListener(e-> {
             options.setValue(e.getValue());
             changeColor(e, options, dicebearVaadin);
         });
-        radius.addValueChangeListener(e->{
+        /*radius.addValueChangeListener(e->{
             options.setRadius(radius.getValue());
             options.setMargin(radius.getValue()/5);
             changeColor(e, options, dicebearVaadin);
             dicebearVaadin.setOptions(options);
-        });
+        });*/
         size.setValueChangeMode(ValueChangeMode.EAGER);
         size.addValueChangeListener(e-> {
                     if(isNumeric(e.getValue())) {

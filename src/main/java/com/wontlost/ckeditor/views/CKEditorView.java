@@ -8,12 +8,10 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.RouteConfiguration;
 import com.vaadin.flow.router.RouterLink;
-import com.vaadin.flow.server.PWA;
 import com.wontlost.ckeditor.views.balloon.BalloonView;
 import com.wontlost.ckeditor.views.classic.ClassicView;
 import com.wontlost.ckeditor.views.decoupled.DecoupledView;
@@ -30,7 +28,6 @@ import static com.wontlost.ckeditor.utils.Constant.*;
  * The main view is a top-level placeholder for other views.
  */
 @JsModule("./styles/shared-styles.js")
-@Viewport(VIEWPORT)
 public class CKEditorView extends AppLayout{
 
     private final Tabs menu;

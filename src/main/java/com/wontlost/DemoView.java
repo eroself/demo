@@ -5,7 +5,6 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
-import com.vaadin.flow.server.PWA;
 import com.wontlost.alert.SweetAlert2View;
 import com.wontlost.anime.AnimeView;
 import com.wontlost.ckeditor.views.CKEditorView;
@@ -24,7 +23,6 @@ import static com.wontlost.ckeditor.utils.Constant.*;
  */
 @Route("demo")
 @RouteAlias(PAGE_ROOT)
-@PWA(name = "Demo", shortName = "Demo", display = "fullscreen")
 public class DemoView extends VerticalLayout implements HasUrlParameter<String> {
 
     private static final Map<String, Component> components = new HashMap<>();

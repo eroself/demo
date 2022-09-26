@@ -1,10 +1,10 @@
 {
-  "name": "CK Editor",
-  "short_name": "Editor",
+  "name": "Demo",
+  "short_name": "Demo",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "A sample of ckeditor on vaadin.",
+  "description": "A set of samples on vaadin.",
   "icons": [{
     "src": "icons/icon-16x16.png",
     "sizes": "16x16",

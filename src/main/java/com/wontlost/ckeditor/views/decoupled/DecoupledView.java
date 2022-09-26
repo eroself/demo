@@ -1,5 +1,6 @@
 package com.wontlost.ckeditor.views.decoupled;
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
@@ -19,8 +20,8 @@ public class DecoupledView extends VerticalLayout {
     public DecoupledView() {
         super();
         Config config = new Config();
-        config.enablePagination();
-        config.setPaginationA4();
+        //config.enablePagination();
+        //config.setPaginationA4();
         config.enableMinimap();
         config.setLicenseKey("Z53+BPxUtC2O0wXt+GeB/jVNCkGvO/1eQ3o2eUqq83m2+mBZl3bNeUUDpw==");
         config.setImage(new String[][]{},
@@ -35,9 +36,16 @@ public class DecoupledView extends VerticalLayout {
             builder.editorType = EditorType.DECOUPLED;
             builder.width = "70%";
             builder.minimap = true;
+            builder.readOnly = true;
             builder.config = config;
         }).createVaadinCKEditor();
         add(editor);
+
+        Button openInDialog = new Button("Change readonly");
+        openInDialog.addClickListener((event -> {
+            editor.setReadOnly(!editor.isReadOnly());
+        }));
+        add(openInDialog);
 
         add(new Label("--------------Preview---------------"));
 //        Label label = new Label();
