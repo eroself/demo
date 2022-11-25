@@ -72,6 +72,7 @@ public class ClassicView extends VerticalLayout {
             builder.editorType = EditorType.CLASSIC;
             builder.width = "70%";
             builder.readOnly = true;
+            builder.ghsEnabled = true;
             builder.hideToolbar=true;
             builder.config = config;
         }).createVaadinCKEditor();
