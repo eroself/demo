@@ -93,6 +93,7 @@ public class ClassicView extends VerticalLayout {
             builder.editorType = EditorType.BALLOON;
             builder.width = "70%";
             builder.config = new Config();
+            builder.ghsEnabled = true;
             config.setImage(new String[][]{}, "", new String[]{}, new String[]{}, new String[]{});
             builder.readOnly = true;
         }).createVaadinCKEditor();
