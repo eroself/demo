@@ -78,7 +78,6 @@ public class ClassicView extends VerticalLayout {
         }).createVaadinCKEditor();
         editor.setLabel("Comment:");
         editor.setRequiredIndicatorVisible(true);
-        editor.setErrorMessage("No content provided.");
         add(editor);
 
         Button changeReadonlyMode = new Button("change readonly mode");
@@ -98,7 +97,12 @@ public class ClassicView extends VerticalLayout {
             builder.readOnly = true;
         }).createVaadinCKEditor();
         add(preview);
-        editor.addValueChangeListener(e->preview.setValue(editor.getValue()));
+        editor.addValueChangeListener(e-> {
+            preview.setValue(editor.getValue());
+            if(e.getValue().isEmpty()) {
+                editor.setErrorMessage("No content provided.");
+            }
+        });
 //        Label label = new Label();
 //        label.setWidth(editor.getWidth());
 //        label.getElement().setProperty("innerHTML", editor.getValue());
