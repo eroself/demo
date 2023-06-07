@@ -30,7 +30,7 @@ public class ZXingView extends VerticalLayout {
             System.out.println("=================QR=====:"+e.getValue());
             System.out.println("====================================================");
             value1.setText(e.getValue());
-            remove(zXingVaadin1);
+            //remove(zXingVaadin1);
         });
         add(zXingVaadin1);
         add(new Label(""));
