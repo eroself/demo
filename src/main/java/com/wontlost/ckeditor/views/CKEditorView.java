@@ -3,6 +3,7 @@ package com.wontlost.ckeditor.views;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
@@ -28,6 +29,7 @@ import static com.wontlost.ckeditor.utils.Constant.*;
  * The main view is a top-level placeholder for other views.
  */
 @JsModule("./styles/shared-styles.js")
+@CssImport("./styles/views/app.css")
 public class CKEditorView extends AppLayout{
 
     private final Tabs menu;
@@ -71,7 +73,7 @@ public class CKEditorView extends AppLayout{
 
     private static Div donateButton() {
         Div div = new Div();
-        div.getElement().setProperty("innerHTML", "<a target=\"_blank\" href=\"https://github.com/sponsors/wontlost-ltd\"><img alt=\"donate\" style=\"width:45px\" src=\"/icons/money.png\"></a>");
+        div.getElement().setProperty("innerHTML", "<a target=\"_blank\" href=\"https://github.com/sponsors/wontlost-ltd\"><img alt=\"donate\" style=\"width:45px\" src=\"/icons/money.png\" class=\"rainbow-glow-shake\"></a>");
         return div;
     }
 

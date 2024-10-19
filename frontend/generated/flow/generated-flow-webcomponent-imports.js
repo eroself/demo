@@ -5,6 +5,7 @@ import { injectGlobalCss } from 'Frontend/generated/jar-resources/theme-util.js'
 import { css, unsafeCSS, registerStyles } from '@vaadin/vaadin-themable-mixin';
 import $cssFromFile_0 from 'Frontend/generated/jar-resources/styles.css?inline';
 import $cssFromFile_1 from 'Frontend/generated/jar-resources/ckeditor.css?inline';
+import $cssFromFile_2 from 'Frontend/styles/views/app.css?inline';
 import '@vaadin/field-highlighter/theme/lumo/vaadin-field-highlighter.js';
 import '@vaadin/common-frontend/ConnectionIndicator.js';
 import '@vaadin/polymer-legacy-adapter/style-modules.js';
@@ -185,6 +186,9 @@ injectGlobalWebcomponentCss($cssFromFile_0.toString());
 
 injectGlobalCss($cssFromFile_1.toString(), 'CSSImport end', document);
 injectGlobalWebcomponentCss($cssFromFile_1.toString());
+
+injectGlobalCss($cssFromFile_2.toString(), 'CSSImport end', document);
+injectGlobalWebcomponentCss($cssFromFile_2.toString());
 const loadOnDemand = (key) => { return Promise.resolve(0); }
 window.Vaadin = window.Vaadin || {};
 window.Vaadin.Flow = window.Vaadin.Flow || {};
