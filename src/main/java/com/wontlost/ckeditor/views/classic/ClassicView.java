@@ -96,7 +96,7 @@ public class ClassicView extends VerticalLayout {
         }));
         add(changeReadonlyMode);
 
-        Button insertText = new Button("insert 'I love u'");
+        Button insertText = new Button("insert text");
 
         add(insertText);
 
