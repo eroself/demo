@@ -65,18 +65,13 @@ public class CKEditorView extends AppLayout{
         tabs.add(createTab(VaadinIcon.FILE_TEXT_O, TITLE_BALLOON_EDITOR, BalloonView.class));
         tabs.add(createTab(VaadinIcon.FILE_TEXT_O, TITLE_DECOUPLED_EDITOR, DecoupledView.class));
         tabs.add(createTab(VaadinIcon.FILE_TEXT_O, TITLE_DIALOG_EDITOR, DialogView.class));
+        tabs.add(createTab(donateButton()));
         return tabs.toArray(new Tab[tabs.size()]);
     }
 
     private static Div donateButton() {
         Div div = new Div();
-        div.getElement().setProperty("innerHTML", "<form action=\"https://www.paypal.com/cgi-bin/webscr\" " +
-                "method=\"post\" target=\"_top\" style=\"display:flex; align-items:center; height: 100%; \"> "+
-                "<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\" /> "+
-                "<input type=\"hidden\" name=\"hosted_button_id\" value=\"7GG7XSYJ4TZFQ\" /> "+
-                "<input type=\"image\" src=\"icons/money.png\" border=\"0\" name=\"submit\" style= \"width:48px; height:36px\"" +
-                " title=\"PayPal - The safer, easier way to pay online!\" alt=\"Donate with PayPal button\" />"+
-                "</form> ");
+        div.getElement().setProperty("innerHTML", "<a target=\"_blank\" href=\"https://github.com/sponsors/wontlost-ltd\"><img alt=\"donate\" style=\"width:45px\" src=\"/icons/money.png\"></a>");
         return div;
     }
 
