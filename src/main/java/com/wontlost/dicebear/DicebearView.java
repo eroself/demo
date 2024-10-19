@@ -1,7 +1,6 @@
 package com.wontlost.dicebear;
 
 import com.vaadin.flow.component.HasValue.ValueChangeEvent;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
@@ -12,12 +11,8 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.StreamRegistration;
-import com.vaadin.flow.server.StreamResource;
 import com.wontlost.dicebear.Constants.Style;
 
-import java.io.ByteArrayInputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -127,15 +122,15 @@ public class DicebearView extends VerticalLayout {
                          * use @StyleSheet annotation for the component class. This way is
                          * chosen just to show the style file source code.
                          */
-                        StreamRegistration resource = UI.getCurrent().getSession()
-                                .getResourceRegistry()
-                                .registerResource(new StreamResource("styles.css", () -> {
-                                    byte[] bytes = styles.getBytes(StandardCharsets.UTF_8);
-                                    return new ByteArrayInputStream(bytes);
-                                }));
-                        UI.getCurrent().getPage().addStyleSheet(
-                                "base://" + resource.getResourceUri().toString());
-                        notification.open();
+                        //StreamRegistration resource = UI.getCurrent().getSession()
+                        //        .getResourceRegistry()
+                        //        .registerResource(new StreamResource("styles.css", () -> {
+                        //            byte[] bytes = styles.getBytes(StandardCharsets.UTF_8);
+                        //            return new ByteArrayInputStream(bytes);
+                        //        }));
+                        //UI.getCurrent().getPage().addStyleSheet(
+                        //        "base://" + resource.getResourceUri().toString());
+                        //notification.open();
                     }
                 });
 

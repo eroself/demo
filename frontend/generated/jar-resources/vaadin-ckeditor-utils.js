@@ -2,6 +2,7 @@ window.vaadinCKEditor = window.vaadinCKEditor || {};
 window.vaadinCKEditor.serverMap = window.vaadinCKEditor.serverMap || {};
 window.vaadinCKEditor.sourceDataObserverMap= window.vaadinCKEditor.sourceDataObserverMap || {};
 window.vaadinCKEditor.editorMap = window.vaadinCKEditor.editorMap || {};
+window.vaadinCKEditor.empty = ['', '<p>&nbsp;</p>'];
 
 window.vaadinCKEditor.contains = function(style) {
     const styleSheets = Array.from(document.styleSheets).filter(
@@ -18,6 +19,16 @@ window.vaadinCKEditor.contains = function(style) {
     }
     return false;
 }
+
+window.vaadinCKEditor.saveData = function( editorId, editorData ) {
+    return new Promise( resolve => {
+        setTimeout( () => {
+            window.vaadinCKEditor.serverMap[editorId].saveEditorData(editorData);
+            resolve();
+        }, 400 );
+    } );
+}
+
 window.vaadinCKEditor.showIndicator = function(editor, shown) {
     let labelId = 'label_'+editor.id;
     let newStyle = window.vaadinCKEditor.contains('#'+labelId+'::after');
@@ -70,6 +81,22 @@ window.vaadinCKEditor.display = function(editor, value) {
     return errorStyle;
 }
 
+/**
+ * This function is used to add a scroll event listener to the vaadin vertical layout object where the editor sits in.
+ * @param editor the element of editor
+ */
+window.vaadinCKEditor.activateScroll = function(editor) {
+    //get div of the scrollable element
+    let container = editor.ui.element.parentElement?.parentElement?.assignedSlot?.parentElement;
+    if(container) {
+        container.addEventListener('scroll', (e) => {
+            editor?.ui?.view?.stickyPanel?.checkIfShouldBeSticky();
+            let poweredBy = document.querySelector(".ck-powered-by-balloon");
+            poweredBy?.remove();
+        })
+    }
+}
+
 window.vaadinCKEditor.setAndCheck = function(editor, value, required, invalid) {
     console.log("=============>"+value);
     // editor.setData(value);
@@ -90,6 +117,28 @@ window.vaadinCKEditor.initEditorObserver = function(editor, required, invalid) {
         });
     }
 }
+
+// window.vaadinCKEditor.importStyle = async function(editor, cssUrl) {
+//         let editorStyle = editor.querySelector("style[override-cke='true']");
+//         if(!editorStyle) {
+//             console.log("read file from " + cssUrl);
+//             let newStyle = document.createElement("style");
+//             newStyle.setAttribute('override-cke', 'true');
+//             const reader = new FileReader();
+//             reader.addEventListener(
+//                 "load",
+//                 () => {
+//                     // this will then display a text file
+//                     newStyle.innerText = ''+reader.result;
+// 					editor.appendChild(newStyle);
+//                 },
+//                 false,
+//             );
+//             if (cssUrl) {
+//                 (await fetch(cssUrl)).blob().then(b=>reader.readAsText(b));
+//             }
+//         }
+// }
 
 window.vaadinCKEditor.sourceEditObserver = function(editor) {
     window.vaadinCKEditor.initEditorObserver(editor);

@@ -1,6 +1,6 @@
 package com.wontlost.ckeditor.views.inline;
 
-import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.NativeLabel;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.wontlost.ckeditor.Config;
 import com.wontlost.ckeditor.Constants.*;
@@ -34,7 +34,7 @@ public class InlineView extends VerticalLayout {
         }).createVaadinCKEditor();
         add(editor);
 
-        add(new Label("--------------Preview---------------"));
+        add(new NativeLabel("--------------Preview---------------"));
 //        Label label = new Label();
 //        label.setWidth(editor.getWidth());
 //        label.getElement().setProperty("innerHTML", editor.getValue());
@@ -50,7 +50,7 @@ public class InlineView extends VerticalLayout {
         }).createVaadinCKEditor();
         add(preview);
         editor.addValueChangeListener(e->preview.setValue(editor.getValue()));
-        add(new Label("--------------Preview---------------"));
+        add(new NativeLabel("--------------Preview---------------"));
 
         setAlignItems(Alignment.CENTER);
     }

@@ -1,6 +1,6 @@
 package com.wontlost.ckeditor.views.balloon;
 
-import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.NativeLabel;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -35,7 +35,7 @@ public class BalloonView extends VerticalLayout {
         }).createVaadinCKEditor();
         add(editor);
 
-        add(new Label("--------------Preview---------------"));
+        add(new NativeLabel("--------------Preview---------------"));
 //        Label label = new Label();
 //        label.setWidth(editor.getWidth());
 //        label.getElement().setProperty("innerHTML", editor.getValue());
@@ -51,7 +51,7 @@ public class BalloonView extends VerticalLayout {
         }).createVaadinCKEditor();
         add(preview);
         editor.addValueChangeListener(e->preview.setValue(editor.getValue()));
-        add(new Label("--------------Preview---------------"));
+        add(new NativeLabel("--------------Preview---------------"));
 
         setAlignItems(Alignment.CENTER);
 

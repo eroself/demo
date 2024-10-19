@@ -1,0 +1,4 @@
+.ck-content .table table, .ck-content .table table td, .ck-content .table table th {
+    border: 1px;
+    color: red;
+}

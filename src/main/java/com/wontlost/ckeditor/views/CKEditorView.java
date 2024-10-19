@@ -52,7 +52,7 @@ public class CKEditorView extends AppLayout{
         final Tabs tabs = new Tabs();
         tabs.setOrientation(Tabs.Orientation.HORIZONTAL);
         tabs.add(getAvailableTabs());
-        tabs.add(donateButton());
+        //tabs.add(donateButton());
         return tabs;
     }
 
