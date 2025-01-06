@@ -20,12 +20,12 @@ public class ZXingView extends VerticalLayout {
     public ZXingView() {
         super();
         NativeLabel value1 = new NativeLabel();
-        NativeLabel value2 = new NativeLabel();
+        //NativeLabel value2 = new NativeLabel();
         ZXingVaadinReader zXingVaadin1 = new ZXingVaadinReader();
         zXingVaadin1.setFrom(Constants.From.camera);
         zXingVaadin1.setWidth("300");
         zXingVaadin1.setHeight("300");
-        zXingVaadin1.setStyle("border : 1px solid gray; object-fit: none;");
+        zXingVaadin1.setStyle("object-fit: none;");
         zXingVaadin1.addValueChangeListener(e->{
             System.out.println("====================================================");
             System.out.println("=================QR=====:"+e.getValue());
@@ -35,31 +35,31 @@ public class ZXingView extends VerticalLayout {
         });
         add(zXingVaadin1);
 
-        ZXingVaadinReader zXingVaadin2 = new ZXingVaadinReader();
-        zXingVaadin2.setFrom(Constants.From.camera);
-        zXingVaadin2.setWidth("300");
-        zXingVaadin2.setHeight("300");
-        zXingVaadin2.setStyle("border : 1px solid gray; object-fit: none;");
-        zXingVaadin2.addValueChangeListener(e->{
-            System.out.println("====================================================");
-            System.out.println("=================QR=====:"+e.getValue());
-            System.out.println("====================================================");
-            value2.setText(e.getValue());
-        });
-        add(zXingVaadin2);
+        //ZXingVaadinReader zXingVaadin2 = new ZXingVaadinReader();
+        //zXingVaadin2.setFrom(Constants.From.camera);
+        //zXingVaadin2.setWidth("300");
+        //zXingVaadin2.setHeight("300");
+        //zXingVaadin2.setStyle("border : 1px solid gray; object-fit: none;");
+        //zXingVaadin2.addValueChangeListener(e->{
+        //    System.out.println("====================================================");
+        //    System.out.println("=================QR=====:"+e.getValue());
+        //    System.out.println("====================================================");
+        //    value2.setText(e.getValue());
+        //});
+        //add(zXingVaadin2);
 
         add(new NativeLabel(""));
         Button reset = new Button("Reset");
         reset.addClickListener(event -> {
             zXingVaadin1.reset();
-            zXingVaadin2.reset();
+            //zXingVaadin2.reset();
             value1.setText("");
-            value2.setText("");
+            //value2.setText("");
         });
 
         add(reset);
         add(value1);
-        add(value2);
+        //add(value2);
         setAlignItems(Alignment.CENTER);
     }
 

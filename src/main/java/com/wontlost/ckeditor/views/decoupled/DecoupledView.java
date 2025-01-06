@@ -23,6 +23,7 @@ public class DecoupledView extends VerticalLayout {
         //config.enablePagination();
         //config.setPaginationA4();
         config.enableMinimap();
+        config.setUiViewportOffset(56D);
         config.setLicenseKey("Z53+BPxUtC2O0wXt+GeB/jVNCkGvO/1eQ3o2eUqq83m2+mBZl3bNeUUDpw==");
         config.setImage(new String[][]{},
                 "", new String[]{"full", "alignLeft", "alignCenter", "alignRight"},

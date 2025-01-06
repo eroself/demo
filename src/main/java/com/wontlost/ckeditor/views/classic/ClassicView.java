@@ -66,11 +66,12 @@ public class ClassicView extends VerticalLayout {
                 Constants.TextPartLanguage.ar, Constants.TextPartLanguage.de, Constants.TextPartLanguage.sr_latn,
                 Constants.TextPartLanguage.fr, Constants.TextPartLanguage.ja, Constants.TextPartLanguage.uz,
                 Constants.TextPartLanguage.af, Constants.TextPartLanguage.bg, Constants.TextPartLanguage.zh_cn});
-        config.setRemovePlugins(Arrays.asList(Constants.Plugins.TableProperties, Constants.Plugins.WProofreader, Constants.Plugins.StandardEditingMode,
-                Constants.Plugins.RestrictedEditingMode, Constants.Plugins.Markdown, Constants.Plugins.Pagination,
-                Constants.Plugins.Minimap, Constants.Plugins.TableCellProperties, Constants.Plugins.ExportPdf, Constants.Plugins.ExportWord));
-        config.setTable(List.of("tableColumn", "tableRow", "mergeTableCells"), List.of(), null, null);
-
+        config.setSimpleUpload("/simple-upload/", false, Arrays.asList("test=test2"));
+        //config.setRemovePlugins(Arrays.asList(Constants.Plugins.TableProperties, Constants.Plugins.WProofreader, Constants.Plugins.StandardEditingMode,
+        //        Constants.Plugins.RestrictedEditingMode, Constants.Plugins.Markdown, Constants.Plugins.Pagination,
+        //        Constants.Plugins.Minimap, Constants.Plugins.TableCellProperties, Constants.Plugins.ExportPdf, Constants.Plugins.ExportWord));
+        //config.setTable(List.of("tableColumn", "tableRow", "mergeTableCells"), List.of(), null, null);
+        config.setLicenseKey("GPL");
         VaadinCKEditor editor = new VaadinCKEditorBuilder().with(builder -> {
             builder.editorData = "<p>This is a classic editor example.</p>";
             builder.editorType = EditorType.CLASSIC;
@@ -80,7 +81,7 @@ public class ClassicView extends VerticalLayout {
             builder.waitingTime = 5000;
             builder.ghsEnabled = true;
             builder.hideToolbar=true;
-            //builder.sync = false;
+            builder.sync = false;
             //builder.overrideCssUrl="./styles/override.css";
             builder.config = config;
         }).createVaadinCKEditor();
@@ -99,13 +100,15 @@ public class ClassicView extends VerticalLayout {
         Button insertText = new Button("insert text");
 
         add(insertText);
-
+        Config config1 = new Config();
+        config1.setLicenseKey("GPL");
+        config1.setSimpleUpload("/simple-upload/", false, Arrays.asList("test=test1"));
         add(new Text("--------------Preview---------------"));
         VaadinCKEditor preview = new VaadinCKEditorBuilder().with(builder -> {
             builder.editorData = editor.getValue();
             builder.editorType = EditorType.BALLOON;
             builder.width = "70%";
-            builder.config = new Config();
+            builder.config = config1;
             builder.ghsEnabled = true;
             //builder.overrideCssUrl="./styles/override1.css";
             config.setImage(new String[][]{}, "", new String[]{}, new String[]{}, new String[]{});

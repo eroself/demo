@@ -21,7 +21,6 @@ class VaadinZXingReader extends LitElement {
                  codeReader: Object,
                  defaultDeviceId: String,
                  showScanLine: Boolean,
-
                  excludes: Array,
                  zxingStyle: String,
                  zxingData:{
@@ -58,20 +57,21 @@ class VaadinZXingReader extends LitElement {
         }
     }
 
-
-    decode(from, where) {
-        if(from === 'camera') {
-            this.startScanner(this.defaultDeviceId).then(()=>{console.log("camera updated with device id:"+this.defaultDeviceId)});
-        } else {
-            this.getDecoder(from, where).then(result => {
+    async decode(from, where) {
+        try {
+            if(from === 'camera') {
+                await this.startScanner(this.defaultDeviceId).then(()=>{console.log("camera updated with device id:"+this.defaultDeviceId)});
+            } else {
+                const result = await this.getDecoder(from, where);
                 this.zxingData = result.text;
                 console.log("***************"+this.zxingData);
                 this.windowServer(result);
-            }).catch(err => {
-                console.log("error:"+err);
-                this.$server.setZxingError(err);
-            });
+            }
+        } catch (err) {
+            console.error("Decode error:", err);
+            this.$server.setZxingError(err.name, err.message);
         }
+
     }
 
     //if image, only update once
@@ -79,13 +79,32 @@ class VaadinZXingReader extends LitElement {
         window.changeServer = this.$server;
         super.firstUpdated(changedProperties);
         this.videoElement = this.querySelector("#"+this.id);
+        navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: {ideal: "environment"}
+            }
+        }).then(stream => {
+            this.videoElement.srcObject = stream;  // Set the video stream
+
+            // Only access video tracks after the stream is set
+            stream.getVideoTracks().forEach(track => {
+                track.applyConstraints({ facingMode: {ideal: "environment"},
+                    width: this.videoElement.width,
+                    height: this.videoElement.height})
+                .then(r => {
+                    console.log("Focus mode set successfully to all videos");
+                }); // Apply constraints to each video track
+            });
+        }).catch(error => {
+            console.error("Error accessing media devices:", error);
+        });
+
         if(this.from === 'image' || this.from === 'video') {
-            console.log("image/video updated");
-            this.decode(this.from, this.videoElement);
+            this.decode(this.from, this.videoElement).then(()=>console.log("decoded from image/video"));
         } else if(this.from === 'camera'){
             //From camera, initialize settings
             const self = this;
-            this.loadDevices();
+            this.loadDevices().then(()=>{console.debug("devices loaded.")});
             this.querySelector("#zxing-svg-overlay").addEventListener("click", ()=>self.showSettingsPanel());
             this.querySelector("#zxing-video-selector").addEventListener('change', function () {
                 self.changeVideoSource(this.value).then(()=>{
@@ -107,7 +126,7 @@ class VaadinZXingReader extends LitElement {
             .then(videoInputDevices => {
                 if (videoInputDevices === undefined || videoInputDevices.length === 0) {
                     console.warn("No camera found.");
-                    this.$server.setZxingError("No camera found.");
+                    this.$server.setZxingError("general", "No camera found.");
                 }
                 this.defaultDeviceId = videoInputDevices[0].deviceId; //set the 1 camera as default
                 if(videoInputDevices.length >= 1) {
@@ -131,9 +150,10 @@ class VaadinZXingReader extends LitElement {
     reset() {
         this.codeReader.reset();
         window.changeServer = undefined;
-        this.decode(this.from, this.querySelector("#"+this.id));
-        this.loadDevices().then(()=>{console.log("devices loaded")});
-        console.log("reader reset");
+        this.decode(this.from, this.querySelector("#"+this.id)).then(()=>{
+            console.log("reset done for device "+this.defaultDeviceId);
+        });
+        this.loadDevices().then(()=>{console.log("devices re-loaded.")});
     }
 
     updated(changedProperties) {
@@ -170,7 +190,9 @@ class VaadinZXingReader extends LitElement {
     }
 
     async changeVideoSource(newDeviceId) {
-        this.stopVideoStream(); // Stop the current video stream
+        if (this.defaultDeviceId === newDeviceId) return;
+        this.stopVideoStream();
+        this.defaultDeviceId = newDeviceId;
         await this.startScanner(newDeviceId);
     }
 

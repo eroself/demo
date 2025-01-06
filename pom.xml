@@ -19,7 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <!-- Dependencies -->
-        <vaadin.version>24.5.0</vaadin.version>
+        <vaadin.version>24.5.7</vaadin.version>
         <webdriver.chrome.driver>80.0.3987.106</webdriver.chrome.driver>
         <!-- Overrides the old version specified by the Spring Boot parent -->
         <selenium.version>4.14.1</selenium.version>
@@ -234,13 +234,13 @@
         <dependency>
             <groupId>com.wontlost</groupId>
             <artifactId>ckeditor-vaadin</artifactId>
-            <version>4.1.2</version>
+            <version>4.1.2-8</version>
         </dependency>
 
         <dependency>
             <groupId>com.wontlost</groupId>
             <artifactId>zxing-vaadin</artifactId>
-            <version>3.1.0</version>
+            <version>3.1.0-8</version>
         </dependency>
 
         <dependency>
