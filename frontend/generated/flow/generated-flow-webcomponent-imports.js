@@ -1,199 +1,51 @@
 import { injectGlobalWebcomponentCss } from 'Frontend/generated/jar-resources/theme-util.js';
 
-import { injectGlobalCss } from 'Frontend/generated/jar-resources/theme-util.js';
-
-import { css, unsafeCSS, registerStyles } from '@vaadin/vaadin-themable-mixin';
-import $cssFromFile_0 from 'Frontend/generated/jar-resources/styles.css?inline';
-import $cssFromFile_1 from 'Frontend/generated/jar-resources/ckeditor.css?inline';
-import $cssFromFile_2 from 'Frontend/styles/views/app.css?inline';
-import $cssFromFile_3 from 'Frontend/generated/jar-resources/vaadin-zxing.css?inline';
-import '@vaadin/field-highlighter/theme/lumo/vaadin-field-highlighter.js';
 import '@vaadin/common-frontend/ConnectionIndicator.js';
 import '@vaadin/polymer-legacy-adapter/style-modules.js';
-import '@vaadin/accordion/theme/lumo/vaadin-accordion.js';
-import '@vaadin/details/theme/lumo/vaadin-details.js';
-import '@vaadin/accordion/theme/lumo/vaadin-accordion-panel.js';
-import '@vaadin/app-layout/theme/lumo/vaadin-app-layout.js';
-import '@vaadin/button/theme/lumo/vaadin-button.js';
-import 'Frontend/generated/jar-resources/buttonFunctions.js';
-import '@vaadin/app-layout/theme/lumo/vaadin-drawer-toggle.js';
-import '@vaadin/avatar/theme/lumo/vaadin-avatar.js';
-import '@vaadin/avatar-group/theme/lumo/vaadin-avatar-group.js';
-import '@vaadin/board/theme/lumo/vaadin-board.js';
-import '@vaadin/board/theme/lumo/vaadin-board-row.js';
-import '@vaadin/charts/theme/lumo/vaadin-chart.js';
-import '@vaadin/checkbox/theme/lumo/vaadin-checkbox.js';
-import '@vaadin/checkbox-group/theme/lumo/vaadin-checkbox-group.js';
-import '@vaadin/combo-box/theme/lumo/vaadin-combo-box.js';
-import 'Frontend/generated/jar-resources/flow-component-renderer.js';
-import 'Frontend/generated/jar-resources/comboBoxConnector.js';
-import '@vaadin/multi-select-combo-box/theme/lumo/vaadin-multi-select-combo-box.js';
-import '@vaadin/confirm-dialog/theme/lumo/vaadin-confirm-dialog.js';
-import '@vaadin/context-menu/theme/lumo/vaadin-context-menu.js';
-import 'Frontend/generated/jar-resources/contextMenuConnector.js';
-import 'Frontend/generated/jar-resources/contextMenuTargetConnector.js';
-import '@vaadin/cookie-consent/theme/lumo/vaadin-cookie-consent.js';
-import 'Frontend/generated/jar-resources/cookieConsentConnector.js';
-import '@vaadin/crud/theme/lumo/vaadin-crud.js';
-import '@vaadin/crud/src/vaadin-crud-edit-column.js';
-import '@vaadin/grid/theme/lumo/vaadin-grid.js';
-import '@vaadin/grid/theme/lumo/vaadin-grid-column.js';
-import '@vaadin/grid/theme/lumo/vaadin-grid-sorter.js';
-import 'Frontend/generated/jar-resources/gridConnector.ts';
-import '@vaadin/tooltip/theme/lumo/vaadin-tooltip.js';
-import '@vaadin/custom-field/theme/lumo/vaadin-custom-field.js';
-import '@vaadin/date-picker/theme/lumo/vaadin-date-picker.js';
-import 'Frontend/generated/jar-resources/datepickerConnector.js';
-import '@vaadin/date-time-picker/theme/lumo/vaadin-date-time-picker.js';
-import '@vaadin/time-picker/theme/lumo/vaadin-time-picker.js';
-import 'Frontend/generated/jar-resources/vaadin-time-picker/timepickerConnector.js';
-import '@vaadin/dialog/theme/lumo/vaadin-dialog.js';
-import 'Frontend/generated/jar-resources/dndConnector.js';
-import '@vaadin/form-layout/theme/lumo/vaadin-form-layout.js';
-import '@vaadin/form-layout/theme/lumo/vaadin-form-item.js';
-import '@vaadin/grid/theme/lumo/vaadin-grid-column-group.js';
-import 'Frontend/generated/jar-resources/vaadin-grid-flow-selection-column.js';
-import '@vaadin/grid-pro/theme/lumo/vaadin-grid-pro.js';
-import '@vaadin/grid-pro/theme/lumo/vaadin-grid-pro-edit-column.js';
-import 'Frontend/generated/jar-resources/gridProConnector.js';
-import '@vaadin/icon/theme/lumo/vaadin-icon.js';
-import '@vaadin/icons/vaadin-iconset.js';
-import '@vaadin/list-box/theme/lumo/vaadin-list-box.js';
-import '@vaadin/item/theme/lumo/vaadin-item.js';
-import '@vaadin/login/theme/lumo/vaadin-login-form.js';
-import '@vaadin/login/theme/lumo/vaadin-login-overlay.js';
-import '@vaadin/map/theme/lumo/vaadin-map.js';
-import 'Frontend/generated/jar-resources/vaadin-map/mapConnector.js';
-import 'Frontend/generated/jar-resources/menubarConnector.js';
-import '@vaadin/menu-bar/theme/lumo/vaadin-menu-bar.js';
-import '@vaadin/message-input/theme/lumo/vaadin-message-input.js';
-import 'Frontend/generated/jar-resources/messageListConnector.js';
-import '@vaadin/message-list/theme/lumo/vaadin-message-list.js';
-import '@vaadin/notification/theme/lumo/vaadin-notification.js';
-import '@vaadin/horizontal-layout/theme/lumo/vaadin-horizontal-layout.js';
-import '@vaadin/scroller/theme/lumo/vaadin-scroller.js';
-import '@vaadin/vertical-layout/theme/lumo/vaadin-vertical-layout.js';
-import '@vaadin/popover/theme/lumo/vaadin-popover.js';
-import 'Frontend/generated/jar-resources/vaadin-popover/popover.ts';
-import '@vaadin/progress-bar/theme/lumo/vaadin-progress-bar.js';
-import '@vaadin/radio-group/theme/lumo/vaadin-radio-button.js';
-import '@vaadin/radio-group/theme/lumo/vaadin-radio-group.js';
-import 'Frontend/generated/jar-resources/ReactRouterOutletElement.tsx';
-import '@vaadin/rich-text-editor/theme/lumo/vaadin-rich-text-editor.js';
-import '@vaadin/select/theme/lumo/vaadin-select.js';
-import 'Frontend/generated/jar-resources/selectConnector.js';
-import 'Frontend/generated/jar-resources/tooltip.ts';
-import '@vaadin/side-nav/theme/lumo/vaadin-side-nav.js';
-import '@vaadin/side-nav/theme/lumo/vaadin-side-nav-item.js';
-import '@vaadin/split-layout/theme/lumo/vaadin-split-layout.js';
-import '@vaadin/tabs/theme/lumo/vaadin-tab.js';
-import '@vaadin/tabsheet/theme/lumo/vaadin-tabsheet.js';
-import '@vaadin/tabs/theme/lumo/vaadin-tabs.js';
-import 'Frontend/generated/jar-resources/vaadin-big-decimal-field.js';
-import '@vaadin/email-field/theme/lumo/vaadin-email-field.js';
-import '@vaadin/integer-field/theme/lumo/vaadin-integer-field.js';
-import '@vaadin/number-field/theme/lumo/vaadin-number-field.js';
-import '@vaadin/password-field/theme/lumo/vaadin-password-field.js';
-import '@vaadin/text-area/theme/lumo/vaadin-text-area.js';
-import '@vaadin/text-field/theme/lumo/vaadin-text-field.js';
-import 'Frontend/generated/jar-resources/lit-renderer.ts';
-import '@vaadin/grid/theme/lumo/vaadin-grid-tree-toggle.js';
-import '@vaadin/upload/theme/lumo/vaadin-upload.js';
-import '@vaadin/virtual-list/theme/lumo/vaadin-virtual-list.js';
-import 'Frontend/generated/jar-resources/virtualListConnector.js';
 import '@vaadin/vaadin-lumo-styles/sizing.js';
 import '@vaadin/vaadin-lumo-styles/spacing.js';
 import '@vaadin/vaadin-lumo-styles/style.js';
 import '@vaadin/vaadin-lumo-styles/vaadin-iconset.js';
-import 'Frontend/styles/shared-styles.js';
-import 'Frontend/generated/jar-resources/vaadin-ckeditor-utils.min.js';
-import 'Frontend/generated/jar-resources/vaadin-ckeditor.min.js';
-import 'Frontend/generated/jar-resources/translations/af.js';
-import 'Frontend/generated/jar-resources/translations/ar.js';
-import 'Frontend/generated/jar-resources/translations/ast.js';
-import 'Frontend/generated/jar-resources/translations/az.js';
-import 'Frontend/generated/jar-resources/translations/bg.js';
-import 'Frontend/generated/jar-resources/translations/bn.js';
-import 'Frontend/generated/jar-resources/translations/bs.js';
-import 'Frontend/generated/jar-resources/translations/ca.js';
-import 'Frontend/generated/jar-resources/translations/cs.js';
-import 'Frontend/generated/jar-resources/translations/da.js';
-import 'Frontend/generated/jar-resources/translations/de.js';
-import 'Frontend/generated/jar-resources/translations/de-ch.js';
-import 'Frontend/generated/jar-resources/translations/el.js';
-import 'Frontend/generated/jar-resources/translations/en-au.js';
-import 'Frontend/generated/jar-resources/translations/en-gb.js';
-import 'Frontend/generated/jar-resources/translations/eo.js';
-import 'Frontend/generated/jar-resources/translations/es.js';
-import 'Frontend/generated/jar-resources/translations/es-co.js';
-import 'Frontend/generated/jar-resources/translations/et.js';
-import 'Frontend/generated/jar-resources/translations/eu.js';
-import 'Frontend/generated/jar-resources/translations/fa.js';
-import 'Frontend/generated/jar-resources/translations/fi.js';
-import 'Frontend/generated/jar-resources/translations/fr.js';
-import 'Frontend/generated/jar-resources/translations/gl.js';
-import 'Frontend/generated/jar-resources/translations/gu.js';
-import 'Frontend/generated/jar-resources/translations/hi.js';
-import 'Frontend/generated/jar-resources/translations/he.js';
-import 'Frontend/generated/jar-resources/translations/hr.js';
-import 'Frontend/generated/jar-resources/translations/hu.js';
-import 'Frontend/generated/jar-resources/translations/id.js';
-import 'Frontend/generated/jar-resources/translations/it.js';
-import 'Frontend/generated/jar-resources/translations/ja.js';
-import 'Frontend/generated/jar-resources/translations/jv.js';
-import 'Frontend/generated/jar-resources/translations/km.js';
-import 'Frontend/generated/jar-resources/translations/kn.js';
-import 'Frontend/generated/jar-resources/translations/ko.js';
-import 'Frontend/generated/jar-resources/translations/ku.js';
-import 'Frontend/generated/jar-resources/translations/lt.js';
-import 'Frontend/generated/jar-resources/translations/lv.js';
-import 'Frontend/generated/jar-resources/translations/ms.js';
-import 'Frontend/generated/jar-resources/translations/nb.js';
-import 'Frontend/generated/jar-resources/translations/ne.js';
-import 'Frontend/generated/jar-resources/translations/nl.js';
-import 'Frontend/generated/jar-resources/translations/no.js';
-import 'Frontend/generated/jar-resources/translations/oc.js';
-import 'Frontend/generated/jar-resources/translations/pl.js';
-import 'Frontend/generated/jar-resources/translations/pt.js';
-import 'Frontend/generated/jar-resources/translations/pt-br.js';
-import 'Frontend/generated/jar-resources/translations/ro.js';
-import 'Frontend/generated/jar-resources/translations/ru.js';
-import 'Frontend/generated/jar-resources/translations/si.js';
-import 'Frontend/generated/jar-resources/translations/sk.js';
-import 'Frontend/generated/jar-resources/translations/sl.js';
-import 'Frontend/generated/jar-resources/translations/sq.js';
-import 'Frontend/generated/jar-resources/translations/sr.js';
-import 'Frontend/generated/jar-resources/translations/sr-latn.js';
-import 'Frontend/generated/jar-resources/translations/sv.js';
-import 'Frontend/generated/jar-resources/translations/th.js';
-import 'Frontend/generated/jar-resources/translations/tk.js';
-import 'Frontend/generated/jar-resources/translations/tr.js';
-import 'Frontend/generated/jar-resources/translations/tt.js';
-import 'Frontend/generated/jar-resources/translations/ug.js';
-import 'Frontend/generated/jar-resources/translations/uz.js';
-import 'Frontend/generated/jar-resources/translations/uk.js';
-import 'Frontend/generated/jar-resources/translations/ur.js';
-import 'Frontend/generated/jar-resources/translations/vi.js';
-import 'Frontend/generated/jar-resources/translations/zh.js';
-import 'Frontend/generated/jar-resources/translations/zh-cn.js';
-import 'Frontend/generated/jar-resources/vaadin-datebook.js';
-import 'Frontend/generated/jar-resources/vaadin-dicebear.js';
-import 'Frontend/generated/jar-resources/vaadin-sweet-alert2.js';
-import 'Frontend/generated/jar-resources/vaadin-zxing-reader.js';
-import 'Frontend/generated/jar-resources/vaadin-zxing-writer.js';
+import 'Frontend/generated/jar-resources/ReactRouterOutletElement.tsx';
 
-injectGlobalCss($cssFromFile_0.toString(), 'CSSImport end', document);
-injectGlobalWebcomponentCss($cssFromFile_0.toString());
+const loadOnDemand = (key) => {
+  const pending = [];
+  if (key === 'bdc93fc4d0d5f597851667752edab23634be3e2dc29c42a579d4dc6138016a85') {
+    pending.push(import('./chunks/chunk-a1cf7844fd858bac791a31d34ef8788d74e311bca731afdf70256abc874fc8b3.js'));
+  }
+  if (key === 'e51c3fcfd2c72e03019bd7155dac0d216ddf75c26a77a42daa70eb8f31966159') {
+    pending.push(import('./chunks/chunk-0e9e2e6d0fd080c633d655da89b21ed6b6b39f86d2a7ed6542243caebaff09f8.js'));
+  }
+  if (key === 'a2731d124f3896bb13afb6dc810f90215bd124db8a04132710ac33b4360140d5') {
+    pending.push(import('./chunks/chunk-433dcf1683329fe7f4d54789b6096669f9835a3a394f72f2390800d1e864ac9e.js'));
+  }
+  if (key === '31f2905028e756efd9a0f51e73b2081e2ff1099a23e83881e9ad7d7add871714') {
+    pending.push(import('./chunks/chunk-6692d94061884c15dcb7cd38bb768c92ec7b3c1e6c888195263d664690c37373.js'));
+  }
+  if (key === '65fe4756aab6ad737ae6064e1b0ce150bf263e7b6dcc18a512ff855458a6b1d2') {
+    pending.push(import('./chunks/chunk-1c80d99fba7f588171736756989ad3ad8867d8bab51efb21c19e1eac73e73fc1.js'));
+  }
+  if (key === '6aa2a35332bb4047a88aaebfcc1c42ff9481122398f0331c8a7dc9389c15c737') {
+    pending.push(import('./chunks/chunk-0f40665f6a36d2a1e89c44c8a7aa70f3805b8ae8d1acac661e3f2ac08a3230b1.js'));
+  }
+  if (key === 'b91d6af389c7aa07a106f80f6e4157ff289a86c9c62aa59065083f0eddb91c02') {
+    pending.push(import('./chunks/chunk-a1cf7844fd858bac791a31d34ef8788d74e311bca731afdf70256abc874fc8b3.js'));
+  }
+  if (key === '6f9400c4529b1b31b79177c4c1b23566818dab4f6484426eebf276b8eb9c102a') {
+    pending.push(import('./chunks/chunk-577f019df0480dcc8a65d41ce54ae730fac3467f24b6d6694d5ff876d0b6fac2.js'));
+  }
+  if (key === '50fb8513cab3fc78cd63ef667bac7e5acff0de1fba3432a8499c91655774387c') {
+    pending.push(import('./chunks/chunk-1c80d99fba7f588171736756989ad3ad8867d8bab51efb21c19e1eac73e73fc1.js'));
+  }
+  if (key === '9a25fa6fb0c42c15116f29c4190efcb831fc0a177cc7954dbb49e9630ceae1a7') {
+    pending.push(import('./chunks/chunk-57533f5af8e21749d541e799bfb69ae2ba7afc34d233927f440130272f97fa21.js'));
+  }
+  if (key === '5c4b0c0018dedbcb11950716ab187f6de9620f3661b1301af6da87540475637f') {
+    pending.push(import('./chunks/chunk-aa8813da4137f1e85b198e07577da3e61e8cc4624f6dd24aeb8e0deba81d384e.js'));
+  }
+  return Promise.all(pending);
+}
 
-injectGlobalCss($cssFromFile_1.toString(), 'CSSImport end', document);
-injectGlobalWebcomponentCss($cssFromFile_1.toString());
-
-injectGlobalCss($cssFromFile_2.toString(), 'CSSImport end', document);
-injectGlobalWebcomponentCss($cssFromFile_2.toString());
-
-injectGlobalCss($cssFromFile_3.toString(), 'CSSImport end', document);
-injectGlobalWebcomponentCss($cssFromFile_3.toString());
-const loadOnDemand = (key) => { return Promise.resolve(0); }
 window.Vaadin = window.Vaadin || {};
 window.Vaadin.Flow = window.Vaadin.Flow || {};
 window.Vaadin.Flow.loadOnDemand = loadOnDemand;
